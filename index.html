@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Experience the Sony WH-1000XM6. Ultra-premium flagship noise-cancelling headphones featuring studio-grade clarity, adaptive noise cancellation, and luxury design.">
+  <title>Sony WH-1000XM6 — Silence, Perfected.</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+  <!-- Cinematic Preloader -->
+  <div id="preloader">
+    <div class="loader-logo">SONY</div>
+    <div class="loader-track">
+      <div class="loader-bar" id="loaderBar"></div>
+    </div>
+    <div class="loader-percentage" id="loaderPercent">0%</div>
+  </div>
+
+  <nav class="navbar" id="navbar">
+    <a href="./index.html#overview" class="nav-logo">
+      SONY <span>WH-1000XM6</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="./index.html#overview">Overview</a></li>
+      <li><a href="./tech.html">Technology</a></li>
+      <li><a href="./shop.html">Configure</a></li>
+      <li><a href="./index.html#specs">Specs</a></li>
+    </ul>
+    <div style="display: flex; align-items: center;">
+      <a href="./shop.html" class="nav-cta">Pre-Order</a>
+      <button class="nav-cart-btn" id="navCartBtn" aria-label="Shopping Bag">
+        <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        <span class="cart-badge" id="cartBadge" style="display: none;">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main Scrollytelling Section -->
+  <div class="scrolly-container" id="overview">
+    <!-- Pinned Viewport -->
+    <div class="viewport-sticky">
+      <!-- Ambient Glow behind Headphones -->
+      <div class="glow-background" id="ambientGlow"></div>
+
+      <!-- Scroll Mouse Hint (visible at top) -->
+      <div class="scroll-hint" id="scrollHint">
+        <span>Scroll to disassemble</span>
+        <div class="scroll-mouse">
+          <div class="scroll-wheel"></div>
+        </div>
+      </div>
+
+      <!-- Canvas for image-sequence drawing -->
+      <div class="canvas-wrapper">
+        <canvas id="canvas3d"></canvas>
+      </div>
+
+      <!-- Narrative Text Overlays -->
+      <div class="overlays-container">
+        
+        <!-- Beat 1: Hero Intro (0% - 15%) -->
+        <section class="scroll-section scroll-section-center" style="z-index: 5;">
+          <div class="content-block active" id="beat-hero">
+            <span class="badge">Introducing SONY WH-1000XM6</span>
+            <h1 class="hero-title">Sony WH-1000XM6</h1>
+            <h2 class="hero-subtitle">Silence, perfected.</h2>
+            <p class="hero-tagline">Flagship wireless noise cancelling, re-engineered for a world that never stops.</p>
+          </div>
+        </section>
+
+        <!-- Beat 2: Engineering Reveal (15% - 40%) -->
+        <section class="scroll-section scroll-section-left">
+          <div class="content-block" id="beat-engineering">
+            <span class="badge">Acoustic Architecture</span>
+            <h2 class="section-title">Precision-engineered for <span>silence</span>.</h2>
+            <p class="body-desc">Custom drivers, sealed acoustic chambers, and optimized airflow deliver studio-grade clarity.</p>
+            <p class="body-desc" style="color: var(--text-muted);">Every component is tuned for balance, power, and comfort — hour after hour.</p>
+          </div>
+        </section>
+
+        <!-- Beat 3: Noise Cancelling & Mics (40% - 65%) -->
+        <section class="scroll-section scroll-section-right">
+          <div class="content-block" id="beat-anc">
+            <span class="badge">Adaptive ANC</span>
+            <h2 class="section-title">Adaptive noise cancelling, <span>redefined</span>.</h2>
+            <ul class="feature-list">
+              <li class="feature-item">
+                <span class="feature-icon"></span>
+                <span>Multi-microphone array listens in every direction.</span>
+              </li>
+              <li class="feature-item">
+                <span class="feature-icon"></span>
+                <span>Real-time noise analysis adjusts to your environment.</span>
+              </li>
+              <li class="feature-item">
+                <span class="feature-icon"></span>
+                <span>Your music stays pure—planes, trains, and crowds fade away.</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Beat 4: Sound & Upscaling (65% - 80%) -->
+        <section class="scroll-section scroll-section-left">
+          <div class="content-block" id="beat-sound">
+            <span class="badge">High-Resolution Audio</span>
+            <h2 class="section-title">Immersive, <span>lifelike</span> sound.</h2>
+            <p class="body-desc">High-performance drivers unlock detail, depth, and texture in every track.</p>
+            <p class="body-desc" style="color: var(--text-muted);">AI-enhanced upscaling restores clarity to compressed audio, so every note feels alive.</p>
+          </div>
+        </section>
+
+        <!-- Beat 5: Reassembly & CTA (80% - 100%) -->
+        <section class="scroll-section scroll-section-center">
+          <div class="content-block" id="beat-cta">
+            <span class="badge">The New Standard</span>
+            <h2 class="section-title">Hear everything.<br><span>Feel nothing else.</span></h2>
+            <p class="body-desc" style="max-width: 600px; margin: 0 auto 2rem auto;">WH-1000XM6. Designed for focus, crafted for comfort.</p>
+            <div>
+              <a href="#preorder" class="btn-primary">Experience WH-1000XM6</a>
+              <a href="#specs" class="btn-secondary">See full specs</a>
+            </div>
+            <p class="cta-subtext">Engineered for airports, offices, and everything in between.</p>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Technical Specifications Section -->
+  <section class="specs-section" id="specs">
+    <div class="specs-grid">
+      <div class="specs-header">
+        <span class="badge">Specifications</span>
+        <h2 class="section-title" style="margin-top: 0.5rem;">Pure Innovation, Uncompromising Detail.</h2>
+      </div>
+
+      <div class="specs-card">
+        <h3><span>01</span> Acoustics & Sound</h3>
+        <p>Featuring custom 40mm high-compliance drivers with lightweight CCAW voice coils. Supports high-resolution LDAC wireless audio and advanced DSEE Extreme real-time AI audio restoration.</p>
+      </div>
+
+      <div class="specs-card">
+        <h3><span>02</span> Adaptive ANC & Chips</h3>
+        <p>Driven by the proprietary SONY V3 Neural Audio Processor. The 8-microphone active sensor grid monitors ambient pressure 12,000 times per second to neutralize frequencies instantly.</p>
+      </div>
+
+      <div class="specs-card">
+        <h3><span>03</span> Smart Power Grid</h3>
+        <p>Delivers up to 45 hours of music playback with noise cancelling deactivated, and 36 hours with full ANC. Ultra-fast charging gives you 5 hours of runtime on a mere 3-minute charge.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">SONY</div>
+      <div class="footer-links">
+        <a href="#overview">Overview</a>
+        <a href="#technology">Technology</a>
+        <a href="#specs">Specs</a>
+        <a href="#">Support</a>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <p>&copy; 2026 Sony Electronics Inc. All rights reserved. SONY and WH-1000XM6 are trademarks of Sony Corporation.</p>
+    </div>
+  </footer>
+
+  <script src="./app.js"></script>
+  <script src="./cart.js"></script>
+</body>
+</html>

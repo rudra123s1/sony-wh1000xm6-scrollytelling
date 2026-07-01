@@ -1,0 +1,22 @@
+# System & IDE folders
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Node & package logs
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Gemini / Agentic caches
+.gemini/
+.agents/
+*.log

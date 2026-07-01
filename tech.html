@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore the advanced technology of the Sony WH-1000XM6. Detail study of the SONY V3 Neural Processor, Hybrid ANC algorithms, and acoustic dome drivers.">
+  <title>Sony WH-1000XM6 — Engineering Deep Dive</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+  <!-- Apple-Style Translucent Navbar -->
+  <nav class="navbar navbar-scrolled" id="navbar" style="opacity: 1;">
+    <a href="./index.html#overview" class="nav-logo">
+      SONY <span>WH-1000XM6</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="./index.html#overview">Overview</a></li>
+      <li><a href="./tech.html" style="color: #ffffff; font-weight: 500;">Technology</a></li>
+      <li><a href="./shop.html">Configure</a></li>
+      <li><a href="./index.html#specs">Specs</a></li>
+    </ul>
+    <div style="display: flex; align-items: center;">
+      <a href="./shop.html" class="nav-cta">Pre-Order</a>
+      <button class="nav-cart-btn" id="navCartBtn" aria-label="Shopping Bag">
+        <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        <span class="cart-badge" id="cartBadge" style="display: none;">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page Main Container -->
+  <div class="page-container">
+    
+    <!-- Hero Banner -->
+    <header class="tech-hero">
+      <span class="badge">Acoustic Engineering</span>
+      <h1 class="main-title" style="font-size: 4rem;">Engineering Silence</h1>
+      <p class="body-desc" style="max-width: 600px; margin: 0 auto;">A look inside the acoustic valves, microprocessors, and neural code that power the Sony WH-1000XM6.</p>
+    </header>
+
+    <!-- Grid Section 1: The Chip -->
+    <section class="tech-grid">
+      <div class="tech-info">
+        <span class="badge">Processing Core</span>
+        <h2 class="section-title">The SONY V3 <span>Neural Audio Engine</span></h2>
+        <p class="body-desc">At the center of the computational audio loop sits our proprietary SONY V3 chip. Built on a ultra-low-power 4nm architecture, it houses double the neural compute cores of previous chips.</p>
+        <p class="body-desc" style="color: var(--text-muted);">It processes ambient noise arrays and applies anti-noise filters 12,000 times per second, adapting dynamically to atmospheric pressure and head movement in real-time.</p>
+      </div>
+      <div class="tech-visual">
+        <div class="chip-graphic">
+          <div class="chip-name">SONY V3</div>
+          <div class="chip-sub">NEURAL AUDIO</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Grid Section 2: ANC Comparison -->
+    <section class="tech-grid">
+      <!-- Visually placed left on desktop, swap order in layout -->
+      <div class="tech-visual" style="grid-column: 1;">
+        <div class="slider-container">
+          <div class="slider-bg-off">
+            <span class="slider-label" style="color: rgba(255, 50, 50, 0.4);">ANC OFF: ambient noise</span>
+          </div>
+          <div class="slider-bg-on" id="sliderBgOn">
+            <span class="slider-label" style="color: var(--accent-cyan);">ANC ON: pure silence</span>
+          </div>
+          <input type="range" min="0" max="100" value="50" class="slider-range-input" id="ancSlider" aria-label="ANC level simulator">
+        </div>
+      </div>
+      <div class="tech-info" style="grid-column: 2;">
+        <span class="badge">Adaptive Isolation</span>
+        <h2 class="section-title">Atmospheric <span>ANC Algorithms</span></h2>
+        <p class="body-desc">By using interactive multi-point feedback, our V3 algorithm isolates and target specific frequency spectrums — from high-frequency commuter voices to deep airplane cabin hums.</p>
+        <p class="body-desc" style="color: var(--text-muted);">Drag the slider on the visualizer to test the real-time attenuation difference between passive structural isolation and active neural wave interference.</p>
+      </div>
+    </section>
+
+    <!-- Grid Section 3: Drivers -->
+    <section class="tech-grid" style="margin-bottom: 10rem;">
+      <div class="tech-info">
+        <span class="badge">Audio Quality</span>
+        <h2 class="section-title">40mm Bio-Cellulose <span>Dome Drivers</span></h2>
+        <p class="body-desc">The high-compliance diaphragm is engineered from lightweight, rigid bio-cellulose fibers. Supported by a high-flux magnetic coil, it responds instantly to micro-transients.</p>
+        <p class="body-desc" style="color: var(--text-muted);">This prevents speaker membrane flexing, preserving absolute fidelity and eliminating harmonic distortion even during extreme bass sweeps or transient orchestra swells.</p>
+      </div>
+      <div class="tech-visual">
+        <!-- Render a stylish abstract speaker diaphragm outline with CSS -->
+        <div style="width: 160px; height: 160px; border-radius: 50%; border: 3px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; position: relative;">
+          <div style="width: 120px; height: 120px; border-radius: 50%; border: 2px dashed rgba(0, 214, 255, 0.3); display: flex; align-items: center; justify-content: center;">
+            <div style="width: 70px; height: 70px; border-radius: 50%; background: radial-gradient(circle, #222 0%, #000 100%); border: 2px solid var(--accent-cyan); box-shadow: 0 0 15px rgba(0,214,255,0.2);"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">SONY</div>
+      <div class="footer-links">
+        <a href="./index.html#overview">Overview</a>
+        <a href="./tech.html">Technology</a>
+        <a href="./shop.html">Configure</a>
+        <a href="./index.html#specs">Specs</a>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <p>&copy; 2026 Sony Electronics Inc. All rights reserved. SONY and WH-1000XM6 are trademarks of Sony Corporation.</p>
+    </div>
+  </footer>
+
+  <script src="./cart.js"></script>
+  <script>
+    // Interactive ANC comparison slider logic
+    document.addEventListener('DOMContentLoaded', () => {
+      const slider = document.getElementById('ancSlider');
+      const bgOn = document.getElementById('sliderBgOn');
+
+      function updateSliderPosition() {
+        const val = slider.value;
+        bgOn.style.width = `${val}%`;
+      }
+
+      slider.addEventListener('input', updateSliderPosition);
+      updateSliderPosition();
+    });
+  </script>
+</body>
+</html>

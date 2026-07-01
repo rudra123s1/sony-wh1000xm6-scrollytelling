@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Securely complete your pre-order checkout for the Sony WH-1000XM6.">
+  <title>Sony WH-1000XM6 — Checkout Gateway</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+  <!-- Apple-Style Translucent Navbar -->
+  <nav class="navbar navbar-scrolled" id="navbar" style="opacity: 1;">
+    <a href="./index.html#overview" class="nav-logo">
+      SONY <span>WH-1000XM6</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="./index.html#overview">Overview</a></li>
+      <li><a href="./tech.html">Technology</a></li>
+      <li><a href="./shop.html">Configure</a></li>
+      <li><a href="./index.html#specs">Specs</a></li>
+    </ul>
+    <div style="display: flex; align-items: center;">
+      <a href="./shop.html" class="nav-cta">Pre-Order</a>
+      <button class="nav-cart-btn" id="navCartBtn" aria-label="Shopping Bag">
+        <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        <span class="cart-badge" id="cartBadge" style="display: none;">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Checkout Grid Container -->
+  <div class="page-container">
+    <div class="checkout-layout">
+      
+      <!-- Left Column: Checkout Forms -->
+      <div class="checkout-form-section">
+        
+        <!-- Card Preview & Payment Input -->
+        <div class="checkout-card">
+          <h3>Secure Payment Gateway</h3>
+          
+          <!-- Live Credit Card Mockup -->
+          <div class="card-preview-wrapper">
+            <div class="credit-card-mockup">
+              <div class="card-chip"></div>
+              <div class="card-number-display" id="cardNumPreview">•••• •••• •••• ••••</div>
+              <div class="card-bottom-row">
+                <div class="card-holder-info">
+                  <span>Cardholder</span>
+                  <span id="cardNamePreview">CARDHOLDER NAME</span>
+                </div>
+                <div class="card-expiry-info">
+                  <span>Expires</span>
+                  <span id="cardExpiryPreview">MM/YY</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Payment Form Fields -->
+          <div class="form-grid">
+            <div class="form-group form-group-full">
+              <label for="cardNameInput">Cardholder Name</label>
+              <input type="text" id="cardNameInput" placeholder="JOHN DOE" autocomplete="cc-name">
+              <span class="form-error" id="cardNameError">Please enter the cardholder name</span>
+            </div>
+            <div class="form-group form-group-full">
+              <label for="cardNumInput">Card Number</label>
+              <input type="text" id="cardNumInput" placeholder="4111 2222 3333 4444" maxlength="19" autocomplete="cc-number">
+              <span class="form-error" id="cardNumError">Please enter a valid 16-digit card number</span>
+            </div>
+            <div class="form-group">
+              <label for="cardExpiryInput">Expiration Date</label>
+              <input type="text" id="cardExpiryInput" placeholder="MM/YY" maxlength="5" autocomplete="cc-exp">
+              <span class="form-error" id="cardExpiryError">Invalid date (MM/YY)</span>
+            </div>
+            <div class="form-group">
+              <label for="cardCvvInput">CVV</label>
+              <input type="password" id="cardCvvInput" placeholder="•••" maxlength="4" autocomplete="cc-csc">
+              <span class="form-error" id="cardCvvError">Enter 3 or 4 digits</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Shipping Address Form -->
+        <div class="checkout-card" style="margin-bottom: 4rem;">
+          <h3>Shipping Address</h3>
+          <div class="form-grid">
+            <div class="form-group form-group-full">
+              <label for="shipName">Full Name</label>
+              <input type="text" id="shipName" placeholder="John Doe">
+              <span class="form-error" id="shipNameError">Full name is required</span>
+            </div>
+            <div class="form-group form-group-full">
+              <label for="shipAddress">Street Address</label>
+              <input type="text" id="shipAddress" placeholder="123 Luxury Way">
+              <span class="form-error" id="shipAddressError">Street address is required</span>
+            </div>
+            <div class="form-group">
+              <label for="shipCity">City</label>
+              <input type="text" id="shipCity" placeholder="Los Angeles">
+              <span class="form-error" id="shipCityError">City is required</span>
+            </div>
+            <div class="form-group">
+              <label for="shipZip">ZIP / Postal Code</label>
+              <input type="text" id="shipZip" placeholder="90001">
+              <span class="form-error" id="shipZipError">ZIP code is required</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Order Summary sticky -->
+      <div class="checkout-summary-column">
+        <div class="summary-card">
+          <h3 style="margin-bottom: 2rem;">Order Summary</h3>
+          
+          <div class="summary-items" id="summaryItemsList">
+            <!-- Dynamically populated -->
+          </div>
+
+          <div class="summary-divider"></div>
+
+          <div class="summary-item-row">
+            <span>Subtotal</span>
+            <span id="summarySubtotal">$0.00</span>
+          </div>
+          <div class="summary-item-row">
+            <span>Shipping</span>
+            <span style="color: var(--accent-cyan);">FREE</span>
+          </div>
+          <div class="summary-item-row">
+            <span>Estimated Tax (7%)</span>
+            <span id="summaryTax">$0.00</span>
+          </div>
+
+          <div class="summary-divider"></div>
+
+          <div class="summary-item-row" style="font-size: 1.2rem; font-weight: 700; color: #ffffff;">
+            <span>Total Due</span>
+            <span id="summaryTotal">$0.00</span>
+          </div>
+
+          <button class="btn-primary" id="placeOrderBtn" style="width: 100%; text-align: center; margin-top: 2rem; padding: 1.15rem; font-size: 1.05rem;">Place Pre-Order</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Order Success Overlay -->
+  <div class="success-overlay" id="successOverlay">
+    <div class="success-content">
+      <div class="success-icon">
+        <svg viewBox="0 0 24 24"><path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+      </div>
+      <h2 style="font-size: 2.25rem; font-weight: 700; margin-bottom: 1rem; color: #ffffff;">Pre-Order Secured</h2>
+      <p class="body-desc">Thank you for your pre-order. We have charged your card and sent a confirmation invoice. SONY WH-1000XM6 will ship to you as soon as they launch in September 2026.</p>
+      <a href="./index.html" class="btn-primary" style="margin-top: 2rem; width: 100%; text-align: center;">Return to Home</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">SONY</div>
+      <div class="footer-links">
+        <a href="./index.html#overview">Overview</a>
+        <a href="./tech.html">Technology</a>
+        <a href="./shop.html">Configure</a>
+        <a href="./index.html#specs">Specs</a>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <p>&copy; 2026 Sony Electronics Inc. All rights reserved. SONY and WH-1000XM6 are trademarks of Sony Corporation.</p>
+    </div>
+  </footer>
+
+  <script src="./cart.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Inputs
+      const cardNameInput = document.getElementById('cardNameInput');
+      const cardNumInput = document.getElementById('cardNumInput');
+      const cardExpiryInput = document.getElementById('cardExpiryInput');
+      const cardCvvInput = document.getElementById('cardCvvInput');
+
+      const shipName = document.getElementById('shipName');
+      const shipAddress = document.getElementById('shipAddress');
+      const shipCity = document.getElementById('shipCity');
+      const shipZip = document.getElementById('shipZip');
+
+      // Previews
+      const cardNamePreview = document.getElementById('cardNamePreview');
+      const cardNumPreview = document.getElementById('cardNumPreview');
+      const cardExpiryPreview = document.getElementById('cardExpiryPreview');
+
+      // Checkout elements
+      const summaryItemsList = document.getElementById('summaryItemsList');
+      const summarySubtotal = document.getElementById('summarySubtotal');
+      const summaryTax = document.getElementById('summaryTax');
+      const summaryTotal = document.getElementById('summaryTotal');
+      const placeOrderBtn = document.getElementById('placeOrderBtn');
+      const successOverlay = document.getElementById('successOverlay');
+
+      // Draw Checkout items
+      function drawSummary() {
+        const cart = window.getCart ? window.getCart() : [];
+        
+        if (cart.length === 0) {
+          summaryItemsList.innerHTML = '<div style="color: var(--text-secondary); text-align: center;">No items in cart.</div>';
+          placeOrderBtn.disabled = true;
+          placeOrderBtn.style.opacity = '0.5';
+          placeOrderBtn.style.cursor = 'not-allowed';
+          return;
+        }
+
+        let itemsHtml = '';
+        let subtotalVal = 0;
+
+        cart.forEach(item => {
+          const itemTotal = item.price * item.qty;
+          subtotalVal += itemTotal;
+          itemsHtml += `
+            <div class="summary-item-row">
+              <span class="summary-item-name">${item.title} <span style="font-size: 0.8rem; color: var(--text-secondary);">(${item.color} / ${item.pkg})</span></span>
+              <span>x${item.qty} $${itemTotal.toFixed(2)}</span>
+            </div>
+          `;
+        });
+
+        summaryItemsList.innerHTML = itemsHtml;
+        summarySubtotal.innerText = `$${subtotalVal.toFixed(2)}`;
+        
+        const taxVal = subtotalVal * 0.07;
+        summaryTax.innerText = `$${taxVal.toFixed(2)}`;
+        
+        const totalVal = subtotalVal + taxVal;
+        summaryTotal.innerText = `$${totalVal.toFixed(2)}`;
+      }
+
+      // Live credit card visual updates
+      cardNameInput.addEventListener('input', () => {
+        cardNamePreview.innerText = cardNameInput.value.toUpperCase() || 'CARDHOLDER NAME';
+      });
+
+      cardNumInput.addEventListener('input', () => {
+        // Auto format with spaces (e.g. 4111 2222 3333 4444)
+        let val = cardNumInput.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+        let formatted = '';
+        for (let i = 0; i < val.length; i++) {
+          if (i > 0 && i % 4 === 0) {
+            formatted += ' ';
+          }
+          formatted += val[i];
+        }
+        cardNumInput.value = formatted;
+        cardNumPreview.innerText = formatted || '•••• •••• •••• ••••';
+      });
+
+      cardExpiryInput.addEventListener('input', () => {
+        // Auto format with slash (MM/YY)
+        let val = cardExpiryInput.value.replace(/\//g, '').replace(/[^0-9]/gi, '');
+        if (val.length >= 2) {
+          cardExpiryInput.value = val.slice(0, 2) + '/' + val.slice(2, 4);
+        } else {
+          cardExpiryInput.value = val;
+        }
+        cardExpiryPreview.innerText = cardExpiryInput.value || 'MM/YY';
+      });
+
+      // Submit checkout form
+      placeOrderBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // Clear previous error styles
+        document.querySelectorAll('.form-error').forEach(el => el.style.display = 'none');
+        document.querySelectorAll('.form-group input').forEach(el => el.style.borderColor = '');
+
+        let hasError = false;
+
+        // Payment validation
+        if (!cardNameInput.value.trim()) {
+          showError('cardName', true);
+          hasError = true;
+        }
+        if (cardNumInput.value.replace(/\s/g, '').length < 16) {
+          showError('cardNum', true);
+          hasError = true;
+        }
+        if (cardExpiryInput.value.length < 5) {
+          showError('cardExpiry', true);
+          hasError = true;
+        }
+        if (cardCvvInput.value.length < 3) {
+          showError('cardCvv', true);
+          hasError = true;
+        }
+
+        // Shipping validation
+        if (!shipName.value.trim()) {
+          showError('shipName', true);
+          hasError = true;
+        }
+        if (!shipAddress.value.trim()) {
+          showError('shipAddress', true);
+          hasError = true;
+        }
+        if (!shipCity.value.trim()) {
+          showError('shipCity', true);
+          hasError = true;
+        }
+        if (!shipZip.value.trim()) {
+          showError('shipZip', true);
+          hasError = true;
+        }
+
+        if (hasError) return;
+
+        // Form is valid! Complete pre-order
+        // Clear local storage cart
+        if (window.saveCart) {
+          window.saveCart([]);
+        }
+
+        // Trigger Success overlay
+        successOverlay.classList.add('active');
+      });
+
+      function showError(idPrefix, state) {
+        const errorEl = document.getElementById(`${idPrefix}Error`);
+        const inputEl = document.getElementById(`${idPrefix}Input`) || document.getElementById(idPrefix);
+        
+        if (state) {
+          if (errorEl) errorEl.style.display = 'block';
+          if (inputEl) inputEl.style.borderColor = 'rgba(255, 50, 50, 0.7)';
+        }
+      }
+
+      drawSummary();
+    });
+  </script>
+</body>
+</html>
