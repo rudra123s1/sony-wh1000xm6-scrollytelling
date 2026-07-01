@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Configure and pre-order your Sony WH-1000XM6 headphones. Select custom colors and premium accessories packages.">
-  <title>Sony WH-1000XM6 — Configure & Pre-Order</title>
+  <meta name="description" content="Configure and pre-order your Sony flagship electronics. Select custom finishes and premium packages.">
+  <title>Sony Store — Configure Product</title>
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
 
   <!-- Apple-Style Translucent Navbar -->
   <nav class="navbar navbar-scrolled" id="navbar" style="opacity: 1;">
-    <a href="./index.html#overview" class="nav-logo">
-      SONY <span>WH-1000XM6</span>
+    <a href="./index.html#overview" class="nav-logo" id="navLogo">
+      SONY <span>STORE</span>
     </a>
     <ul class="nav-links">
-      <li><a href="./index.html#overview">Overview</a></li>
-      <li><a href="./tech.html">Technology</a></li>
+      <li><a href="./index.html" id="navLinkHeadphones">Headphones</a></li>
+      <li><a href="./drone.html" id="navLinkDrone">Drone</a></li>
+      <li><a href="./watch.html" id="navLinkWatch">Smartwatch</a></li>
       <li><a href="./shop.html" style="color: #ffffff; font-weight: 500;">Configure</a></li>
-      <li><a href="./index.html#specs">Specs</a></li>
     </ul>
     <div style="display: flex; align-items: center;">
-      <a href="./shop.html" class="nav-cta">Pre-Order</a>
+      <a href="./shop.html" class="nav-cta" id="navCtaBuy">Pre-Order</a>
       <button class="nav-cart-btn" id="navCartBtn" aria-label="Shopping Bag">
         <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
         <span class="cart-badge" id="cartBadge" style="display: none;">0</span>
@@ -33,67 +33,36 @@
   <div class="page-container">
     <div class="shop-layout">
       
-      <!-- Left Column: Sticky Headphone Preview -->
+      <!-- Left Column: Sticky Product Preview -->
       <div class="shop-visual-sticky">
-        <img id="productPreview" class="tint-black" src="./ezgif-frame-001.jpg" alt="Sony WH-1000XM6 Preview">
+        <img id="productPreview" class="tint-black" src="./ezgif-frame-001.jpg" alt="Product Preview">
       </div>
 
       <!-- Right Column: Configuration Controls -->
       <div class="shop-config-panel">
-        <span class="product-tag">Pre-Order Phase 1</span>
-        <h1 class="product-title">Sony WH-1000XM6</h1>
+        <span class="product-tag" id="prodTag">Pre-Order Phase 1</span>
+        <h1 class="product-title" id="prodTitle">Sony WH-1000XM6</h1>
         
         <div class="product-price-row">
           <span class="product-price" id="displayPrice">$399.99</span>
           <span style="font-size: 0.85rem; color: var(--accent-cyan); font-weight: 600; letter-spacing: 0.05em; background: rgba(0, 214, 255, 0.1); padding: 0.2rem 0.6rem; border-radius: 4px;">Free Express Shipping</span>
         </div>
 
-        <p class="body-desc" style="margin-bottom: 2.5rem;">Pre-order the next generation of absolute acoustic depth. Engineered with the dual V3 neural processor core, custom 40mm bio-cellulose domes, and luxury memory foam pads.</p>
+        <p class="body-desc" id="prodDesc">Pre-order the next generation of absolute acoustic depth. Engineered with the dual V3 neural processor core, custom 40mm bio-cellulose domes, and luxury memory foam pads.</p>
 
         <!-- Configuration 1: Colorways -->
         <div class="config-group">
           <h3>Select Finish: <span id="selectedColorName" style="color: #ffffff; text-transform: none; font-weight: 500; margin-left: 0.5rem;">Matte Black</span></h3>
-          <div class="color-picker">
-            <div class="color-opt active" data-color="Matte Black" data-class="tint-black">
-              <div class="color-dot color-dot-black"></div>
-            </div>
-            <div class="color-opt" data-color="Platinum Silver" data-class="tint-silver">
-              <div class="color-dot color-dot-silver"></div>
-            </div>
-            <div class="color-opt" data-color="Midnight Blue" data-class="tint-blue">
-              <div class="color-dot color-dot-blue"></div>
-            </div>
+          <div class="color-picker" id="colorPickerContainer">
+            <!-- Populated dynamically -->
           </div>
         </div>
 
         <!-- Configuration 2: Accessory Packages -->
         <div class="config-group" style="margin-bottom: 3rem;">
           <h3>Accessory Suite:</h3>
-          <div class="option-cards">
-            <!-- Card 1 -->
-            <div class="opt-card active" data-pkg="Standard" data-price="0">
-              <div class="opt-card-left">
-                <span class="opt-card-name">Standard Pack</span>
-                <span class="opt-card-desc">Travel case, USB-C charging cable, 3.5mm AUX.</span>
-              </div>
-              <span class="opt-card-price">Included</span>
-            </div>
-            <!-- Card 2 -->
-            <div class="opt-card" data-pkg="Audiophile Edition" data-price="49.99">
-              <div class="opt-card-left">
-                <span class="opt-card-name">Audiophile Edition</span>
-                <span class="opt-card-desc">Standard + OCC gold cables & sleek headphone stand.</span>
-              </div>
-              <span class="opt-card-price">+$49.99</span>
-            </div>
-            <!-- Card 3 -->
-            <div class="opt-card" data-pkg="Travel Pro" data-price="29.99">
-              <div class="opt-card-left">
-                <span class="opt-card-name">Travel Pro Pack</span>
-                <span class="opt-card-desc">Standard + universal plug & flight adapters.</span>
-              </div>
-              <span class="opt-card-price">+$29.99</span>
-            </div>
+          <div class="option-cards" id="pkgCardsContainer">
+            <!-- Populated dynamically -->
           </div>
         </div>
 
@@ -111,60 +80,165 @@
     <div class="footer-content">
       <div class="footer-logo">SONY</div>
       <div class="footer-links">
-        <a href="./index.html#overview">Overview</a>
-        <a href="./tech.html">Technology</a>
+        <a href="./index.html">Headphones</a>
+        <a href="./drone.html">Drone</a>
+        <a href="./watch.html">Smartwatch</a>
         <a href="./shop.html">Configure</a>
-        <a href="./index.html#specs">Specs</a>
       </div>
     </div>
     <div class="footer-copyright">
-      <p>&copy; 2026 Sony Electronics Inc. All rights reserved. SONY and WH-1000XM6 are trademarks of Sony Corporation.</p>
+      <p>&copy; 2026 Sony Electronics Inc. All rights reserved. SONY and brand products are trademarks of Sony Corporation.</p>
     </div>
   </footer>
 
   <script src="./cart.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      // Configuration Schema Database
+      const productsData = {
+        headphones: {
+          title: 'Sony WH-1000XM6',
+          tag: 'Flagship Headphones',
+          desc: 'Pre-order the next generation of absolute acoustic depth. Engineered with the SONY V3 neural processor core, custom 40mm bio-cellulose domes, and luxury memory foam pads.',
+          price: 399.99,
+          img: './ezgif-frame-001.jpg',
+          colors: [
+            { name: 'Matte Black', class: 'tint-black', colorCode: '#151515' },
+            { name: 'Platinum Silver', class: 'tint-silver', colorCode: '#d1d5db' },
+            { name: 'Midnight Blue', class: 'tint-blue', colorCode: '#1e3a8a' }
+          ],
+          packages: [
+            { name: 'Standard Pack', price: 0.00, desc: 'Travel case, USB-C charging cable, 3.5mm AUX.' },
+            { name: 'Audiophile Edition', price: 49.99, desc: 'Standard + OCC gold cables & sleek headphone stand.' },
+            { name: 'Travel Pro Pack', price: 29.99, desc: 'Standard + universal plug & flight adapters.' }
+          ]
+        },
+        drone: {
+          title: 'Sony Aero-V1 Drone',
+          tag: 'Cinematic Aerial Intelligence',
+          desc: 'Explore new heights with stabilized 8K dynamic optics, spherical LiDAR collision prevention vectors, and 45-minute carbon flight times.',
+          price: 999.99,
+          img: './drone_1.png',
+          colors: [
+            { name: 'Matte Black', class: 'tint-black', colorCode: '#151515' },
+            { name: 'Carbon Grey', class: 'tint-silver', colorCode: '#6b7280' },
+            { name: 'Cobalt Blue', class: 'tint-blue', colorCode: '#2563eb' }
+          ],
+          packages: [
+            { name: 'Standard Combo', price: 0.00, desc: 'Remote controller, 1x flight battery, carbon-fiber blades.' },
+            { name: 'Fly More Combo', price: 199.99, desc: 'Standard + 3x batteries, multi-charger hub, leather shoulder bag.' },
+            { name: 'Cine Pro Suite', price: 399.99, desc: 'Fly More + ProRes core SSD, variable ND filters stack.' }
+          ]
+        },
+        watch: {
+          title: 'Sony Chronos-1 Smartwatch',
+          tag: 'Premium Hybrid Watch',
+          desc: 'A fusion of classic chronograph gears and transparent micro-OLED technology. Monitor cardiac telemetry, sleep metrics, and atmospheric pressure in style.',
+          price: 599.99,
+          img: './watch_1.png',
+          colors: [
+            { name: 'Matte Black', class: 'tint-black', colorCode: '#151515' },
+            { name: 'Brushed Steel', class: 'tint-silver', colorCode: '#9ca3af' },
+            { name: 'Ocean Blue', class: 'tint-blue', colorCode: '#1d4ed8' }
+          ],
+          packages: [
+            { name: 'Sport Loop Pack', price: 0.00, desc: 'Silicone sport strap, magnetic fast charging induction cradle.' },
+            { name: 'Executive Suite', price: 99.99, desc: 'Standard + grade 5 titanium link wristlet, leather display chest.' },
+            { name: 'Health Premium Fit', price: 49.99, desc: 'Standard + active run strap & 12 months biosensor analytics subscription.' }
+          ]
+        }
+      };
+
+      // Read query params
+      const urlParams = new URLSearchParams(window.location.search);
+      const productKey = urlParams.get('product') || 'headphones';
+      const product = productsData[productKey] || productsData.headphones;
+
+      // DOM bindings
       const preview = document.getElementById('productPreview');
-      const colorOpts = document.querySelectorAll('.color-opt');
-      const selectedColorName = document.getElementById('selectedColorName');
-      
-      const optCards = document.querySelectorAll('.opt-card');
+      const prodTitle = document.getElementById('prodTitle');
+      const prodTag = document.getElementById('prodTag');
+      const prodDesc = document.getElementById('prodDesc');
       const displayPrice = document.getElementById('displayPrice');
       const addCartBtn = document.getElementById('addCartBtn');
+      const colorPickerContainer = document.getElementById('colorPickerContainer');
+      const pkgCardsContainer = document.getElementById('pkgCardsContainer');
+      const selectedColorName = document.getElementById('selectedColorName');
+      const navLogo = document.getElementById('navLogo');
+      
+      // Update dynamic content
+      prodTitle.innerText = product.title;
+      prodTag.innerText = product.tag;
+      prodDesc.innerText = product.desc;
+      preview.src = product.img;
+      
+      // Set nav contextual links
+      if (productKey === 'drone') {
+        navLogo.innerHTML = `SONY <span>AERO-V1</span>`;
+      } else if (productKey === 'watch') {
+        navLogo.innerHTML = `SONY <span>CHRONOS-1</span>`;
+      } else {
+        navLogo.innerHTML = `SONY <span>WH-1000XM6</span>`;
+      }
 
-      let activeColor = 'Matte Black';
-      let activeColorClass = 'tint-black';
-      let activePkg = 'Standard';
-      let basePrice = 399.99;
+      let activeColor = product.colors[0].name;
+      let activeColorClass = product.colors[0].class;
+      let activePkg = product.packages[0].name;
+      let basePrice = product.price;
       let extraPrice = 0.00;
 
-      // Color selection handler
-      colorOpts.forEach(opt => {
+      // Populate Colors list
+      let colorsHtml = '';
+      product.colors.forEach((col, idx) => {
+        colorsHtml += `
+          <div class="color-opt ${idx === 0 ? 'active' : ''}" data-color="${col.name}" data-class="${col.class}">
+            <div class="color-dot" style="background: ${col.colorCode};"></div>
+          </div>
+        `;
+      });
+      colorPickerContainer.innerHTML = colorsHtml;
+
+      // Populate Packages list
+      let pkgsHtml = '';
+      product.packages.forEach((pkg, idx) => {
+        pkgsHtml += `
+          <div class="opt-card ${idx === 0 ? 'active' : ''}" data-pkg="${pkg.name}" data-price="${pkg.price}">
+            <div class="opt-card-left">
+              <span class="opt-card-name">${pkg.name}</span>
+              <span class="opt-card-desc">${pkg.desc}</span>
+            </div>
+            <span class="opt-card-price">${pkg.price === 0 ? 'Included' : '+$' + pkg.price}</span>
+          </div>
+        `;
+      });
+      pkgCardsContainer.innerHTML = pkgsHtml;
+
+      selectedColorName.innerText = activeColor;
+      updatePrice();
+
+      // Bind Color click events
+      document.querySelectorAll('.color-opt').forEach(opt => {
         opt.addEventListener('click', () => {
-          colorOpts.forEach(o => o.classList.remove('active'));
+          document.querySelectorAll('.color-opt').forEach(o => o.classList.remove('active'));
           opt.classList.add('active');
           
           activeColor = opt.getAttribute('data-color');
           activeColorClass = opt.getAttribute('data-class');
-          
           selectedColorName.innerText = activeColor;
           
-          // Apply tint filter to preview image
           preview.className = '';
           preview.classList.add(activeColorClass);
         });
       });
 
-      // Accessory Package selection handler
-      optCards.forEach(card => {
+      // Bind Package click events
+      document.querySelectorAll('.opt-card').forEach(card => {
         card.addEventListener('click', () => {
-          optCards.forEach(c => c.classList.remove('active'));
+          document.querySelectorAll('.opt-card').forEach(c => c.classList.remove('active'));
           card.classList.add('active');
           
           activePkg = card.getAttribute('data-pkg');
           extraPrice = parseFloat(card.getAttribute('data-price'));
-          
           updatePrice();
         });
       });
@@ -174,17 +248,17 @@
         displayPrice.innerText = `$${total.toFixed(2)}`;
       }
 
-      // Add to bag button handler
+      // Add to Cart
       addCartBtn.addEventListener('click', () => {
         const totalVal = basePrice + extraPrice;
         const item = {
-          title: 'Sony WH-1000XM6',
+          title: product.title,
           price: totalVal,
           color: activeColor,
-          pkg: activePkg
+          pkg: activePkg,
+          img: product.img
         };
         
-        // Call global cart manager
         if (window.addToCart) {
           window.addToCart(item);
         }

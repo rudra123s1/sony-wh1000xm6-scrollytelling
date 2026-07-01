@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Experience the Sony Chronos-1. Premium titanium hybrid smartwatch combining micro-mechanical analog gears with OLED medical telemetry.">
+  <title>Sony Chronos-1 Smartwatch — Time, Reimagined.</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+  <!-- Cinematic Preloader -->
+  <div id="preloader">
+    <div class="loader-logo">SONY</div>
+    <div class="loader-track">
+      <div class="loader-bar" id="loaderBar"></div>
+    </div>
+    <div class="loader-percentage" id="loaderPercent">0%</div>
+  </div>
+
+  <!-- Apple-Style Translucent Navbar -->
+  <nav class="navbar" id="navbar">
+    <a href="./index.html#overview" class="nav-logo">
+      SONY <span>CHRONOS-1</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="./index.html">Headphones</a></li>
+      <li><a href="./drone.html">Drone</a></li>
+      <li><a href="./watch.html" style="color: #ffffff; font-weight: 500;">Smartwatch</a></li>
+      <li><a href="./shop.html?product=watch">Configure</a></li>
+    </ul>
+    <div style="display: flex; align-items: center;">
+      <a href="./shop.html?product=watch" class="nav-cta">Pre-Order</a>
+      <button class="nav-cart-btn" id="navCartBtn" aria-label="Shopping Bag">
+        <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        <span class="cart-badge" id="cartBadge" style="display: none;">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main Scrollytelling Section -->
+  <div class="scrolly-container" id="overview">
+    <div class="viewport-sticky">
+      <!-- Ambient Glow behind Smartwatch -->
+      <div class="glow-background" id="ambientGlow"></div>
+
+      <!-- Scroll Hint -->
+      <div class="scroll-hint" id="scrollHint">
+        <span>Scroll to disassemble</span>
+        <div class="scroll-mouse">
+          <div class="scroll-wheel"></div>
+        </div>
+      </div>
+
+      <!-- Canvas for image-sequence drawing -->
+      <div class="canvas-wrapper">
+        <canvas id="canvas3d"></canvas>
+      </div>
+
+      <!-- Narrative Text Overlays -->
+      <div class="overlays-container">
+        
+        <!-- Beat 1: Hero Intro (0% - 15%) -->
+        <section class="scroll-section scroll-section-center" style="z-index: 5;">
+          <div class="content-block active" id="beat-hero">
+            <span class="badge">Introducing SONY CHRONOS-1</span>
+            <h1 class="hero-title">Sony Chronos-1</h1>
+            <h2 class="hero-subtitle">Time, reimagined.</h2>
+            <p class="hero-tagline">Mechanical craftsmanship meets dynamic sensor technology. A true hybrid masterpiece.</p>
+          </div>
+        </section>
+
+        <!-- Beat 2: Engineering Reveal (15% - 40%) -->
+        <section class="scroll-section scroll-section-left">
+          <div class="content-block" id="beat-engineering">
+            <span class="badge">Materials & Casing</span>
+            <h2 class="section-title">Grade 5 <span>Titanium Chassis</span></h2>
+            <p class="body-desc">Forged from aerospace titanium with a hand-polished micro-brushed finish. Extremely lightweight, scratch-resistant, and water-sealed up to 100 meters.</p>
+            <p class="body-desc" style="color: var(--text-muted);">The sapphire crystal dome screen protects your timepiece through every daily climb or deep dive.</p>
+          </div>
+        </section>
+
+        <!-- Beat 3: Biometric Sensor array (40% - 65%) -->
+        <section class="scroll-section scroll-section-right">
+          <div class="content-block" id="beat-anc">
+            <span class="badge">Telemetry Grid</span>
+            <h2 class="section-title">Optical <span>Medical Sensor</span></h2>
+            <p class="body-desc">A stacked multi-wavelength optical grid arrays located at the back of the case monitors vital signals.</p>
+            <ul class="feature-list">
+              <li class="feature-item">
+                <span class="feature-icon"></span>
+                <span>Tracks HRV, blood oxygen, and core pressure in real-time.</span>
+              </li>
+              <li class="feature-item">
+                <span class="feature-icon"></span>
+                <span>Advanced neural models identify stress shifts dynamically.</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Beat 4: Analog Mechanisms (65% - 80%) -->
+        <section class="scroll-section scroll-section-left">
+          <div class="content-block" id="beat-sound">
+            <span class="badge">Analog & Digital</span>
+            <h2 class="section-title">Micro-Mechanical <span>Chronograph</span></h2>
+            <p class="body-desc">Features active physical gears and auto-winding mechanical rotors layered underneath a transparent micro-OLED panel.</p>
+            <p class="body-desc" style="color: var(--text-muted);">Enjoy the pure tactile motion of analog watchcraft, while widgets hover metadata when active.</p>
+          </div>
+        </section>
+
+        <!-- Beat 5: Reassembly & CTA (80% - 100%) -->
+        <section class="scroll-section scroll-section-center">
+          <div class="content-block" id="beat-cta">
+            <span class="badge">Pre-Order Chronos-1</span>
+            <h2 class="section-title">Master your time.<br><span>Secure yours today.</span></h2>
+            <p class="body-desc" style="max-width: 600px; margin: 0 auto 2rem auto;">Sony Chronos-1 Smartwatch. Includes charging cradle and premium leather links or sports strap.</p>
+            <div>
+              <a href="./shop.html?product=watch" class="btn-primary">Pre-order Chronos-1</a>
+              <a href="./tech.html" class="btn-secondary">Technical Specs</a>
+            </div>
+            <p class="cta-subtext">Ships worldwide in September 2026. Fully refundable pre-orders.</p>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Tech Specs Summary Section -->
+  <section class="specs-section">
+    <div class="specs-grid">
+      <div class="specs-header">
+        <span class="badge">Specifications</span>
+        <h2 class="section-title" style="margin-top: 0.5rem;">The Best of Horology and Technology.</h2>
+      </div>
+
+      <div class="specs-card">
+        <h3><span>01</span> Architecture</h3>
+        <p>44mm Grade 5 Titanium case, 11.2mm thickness. Anti-reflective sapphire glass, 10 ATM water-resistance rating, and interchangeable quick-release straps.</p>
+      </div>
+
+      <div class="specs-card">
+        <h3><span>02</span> Smart Hybrid</h3>
+        <p>Mechanical self-winding caliber with 42-hour power reserve. Transparent active matrix micro-OLED screen with ambient light sensors.</p>
+      </div>
+
+      <div class="specs-card">
+        <h3><span>03</span> Health Telemetry</h3>
+        <p>Optical heart rate sensor, skin temperature thermistor, and SpO2 sensor grid. 14 days of smart battery life, magnetic fast-charge induction cradle.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">SONY</div>
+      <div class="footer-links">
+        <a href="./index.html">Headphones</a>
+        <a href="./drone.html">Drone</a>
+        <a href="./watch.html">Smartwatch</a>
+        <a href="./shop.html?product=watch">Configure</a>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <p>&copy; 2026 Sony Electronics Inc. All rights reserved. SONY and Chronos-1 are trademarks of Sony Corporation.</p>
+    </div>
+  </footer>
+
+  <script src="./watch_app.js"></script>
+  <script src="./cart.js"></script>
+</body>
+</html>
